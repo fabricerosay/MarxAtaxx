@@ -3,9 +3,10 @@ using StaticArrays
 using JLD2
 using ArgParse
 
-PATH=abspath("src/")
-include(PATH*"board.jl")
-include(PATH*"search.jl")
+PATH=@__DIR__
+
+include(PATH*"/board.jl")
+include(PATH*"/search.jl")
 
 
 function AtaxxServer(actor,nthread)
@@ -85,7 +86,7 @@ parsed_args = parse_args(ARGS, s)
     pool=TDL.αThreadPool(ev,1)
     result=TDL.SearchResult(GAME.αNONEMOVE,0,0,0)
     c,v,depth=TDL.search(game,1,pool,result)
-    AtaxxServer(ev,parsed_arg["workers"])
+    AtaxxServer(ev,parsed_args["workers"])
 end
 
 function julia_main()::Cint

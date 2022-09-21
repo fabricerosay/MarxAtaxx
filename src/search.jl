@@ -245,13 +245,13 @@ end
 
 get_player_index(game)=game.player==1 ? 1 : 2
 
-PATH=abspath("src/")
+PATH=@__DIR__
 
 
 
 
-const MPCP=JLD2.load(PATH*"p04.jld2")["p04"]
-const MPCPG=JLD2.load(PATH*"p_ij.jld2")["p_ij"]
+const MPCP=JLD2.load(PATH*"/p04.jld2")["p04"]
+const MPCPG=JLD2.load(PATH*"/p_ij.jld2")["p_ij"]
 const Depth=[1 2 1 2 3 4 3 4 5 6 5 6 7 8;
 			 0 0 0 0 0 0 5 6 7 8 7 8 9 10]
 const Reduction=init_reduction_table()
